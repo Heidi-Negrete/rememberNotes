@@ -12,10 +12,21 @@ class RememberNotes {
 
 class MemoData {
   // all memos for all users
-  static get allMemos() {}
+  static get allMemos() {
+    const allMemos = game.users.reduce((accumulator, user) => {
+      const userMemos = this.getMemosForUser(user.id);
+
+      return {
+        ...accumulator,
+        ...userMemos
+      }
+    }, {});
+
+    return allMemos;
+  }
 
   // get all memos for a given user
-  static getMemoForUser(userId) {
+  static getMemosForUser(userId) {
     return game.users.get(userId)?.getFlag(RememberNotes.ID, RememberNotes.FLAGS.MEMOS);
   }
 
@@ -24,10 +35,10 @@ class MemoData {
     // generate random id for new Memo and populate userID
     const newMemo = {
       isPopUp: false,
+      label: '',
       ...memoData,
       id: foundry.utils.randomID(16),
-      userId,
-      label: "" //label?
+      userId
     }
 
     // construct the update to insert new Memo
@@ -40,7 +51,17 @@ class MemoData {
   }
 
   // update a specific memo by id with the provided updateData
-  static updateMemo(memoID, updateData) {}
+  static updateMemo(memoId, updateData) {
+    const relevantMemo = this.allMemos[memoId];
+
+    // construct the update to send
+    const update = {
+      [memoId]: updateData
+    }
+
+    // update database with updated memo list
+    return game.users.get(relevantMemo.userId)?.setFlag(RememberNotes.ID, RememberNotes.FLAGS.MEMOS, update);
+  }
 
   // delete a specific memo by id
   static deleteMemo(memoId) {}

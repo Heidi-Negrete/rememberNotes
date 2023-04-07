@@ -1,5 +1,8 @@
 {
   "MEMO": {
-    "button-title": "Open Memo"
+    "button-title": "Open Memo",
+    "add-memo": "Add Memo",
+    "delete-memo": "Delete Memo",
+    "mark-popup": "Popup on Connect?"
   }
 }

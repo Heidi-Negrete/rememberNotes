@@ -1,3 +1,15 @@
+.memo {
+  padding: 0;
+  margin-top: 0;
+  gap: 1em;
+}
+
+.memo > li {
+  align-items: center;
+  gap: 0.5em;
+  list-style: none;
+}
+
 .memo-icon-button {
   background: transparent;
   padding: 0;

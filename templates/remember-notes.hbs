@@ -1,0 +1,16 @@
+<form>
+  <ul class="memo flexcol">
+    {{#each memos}}
+    <li class="flexrow" data-memo-id="{{id}}">
+      <input type="checkbox" name="{{id}}.isPopUp" title="{{localize "MEMO.mark-popup"}}" data-dtype="Boolean" {{checked isPopUp}}/>
+      <a href="{{label}}" target="_blank" name="{{id}}.label" data-dtype="String"/>
+      <button type="button" title="{{localize "MEMO.delete-memo"}}" data-action="delete" class="flex0 memo-icon-button">
+        <i class="fas fa-trash"></i>
+      </button>
+      </li>
+    {{/each}}
+  </ul>
+
+  <button type="button" data-action="create">
+    <i class="fas fa-plus"></i>{{localize "MEMO.add-memo"}}</button>
+</form>

@@ -1,0 +1,12 @@
+{
+  "name": "rememberNotes",
+  "title": "Remember Notes",
+  "description": "On a per-user basis, configure a journal entry to pop-up on logging in to foundry to remind you to read over and take notes during your session.",
+  "authors": [
+    {
+      "name": "Heidi Negrete"
+    }
+  ],
+  "version": "1",
+  "minimumCoreVersion": "0.8.8"
+}

@@ -10,6 +10,16 @@ class RememberNotes {
   }
 }
 
+Hooks.on('renderPlayerList', (playerList, html) => {
+  // find the element which has our logged in user's id
+  const loggedInUserListItem = html.find(`[data-user-id="${game.userId}"]`)
+  
+  // insert a button at the end of this element
+  loggedInUserListItem.append(
+    "<button type='button' class='memo-icon-button'><i class='fa-solid fa-notes'></i></button>"
+  );
+});
+
 class MemoData {
   // all memos for all users
   static get allMemos() {

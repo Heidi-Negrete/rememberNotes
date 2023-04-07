@@ -1,5 +1,5 @@
 class RememberNotes {
-  static ID = 'remember-notes';
+  static ID = 'rememberNotes';
 
   static FLAGS = {
     MEMOS: 'memos'
@@ -36,7 +36,7 @@ class MemoData {
     }
 
     // update database with new Memos
-    return game.users.get(userId)?.setFlag(RememberNotes.id, RememberNotes.FLAGS.MEMOS, newMemos);
+    return game.users.get(userId)?.setFlag(RememberNotes.ID, RememberNotes.FLAGS.MEMOS, newMemos);
   }
 
   // update a specific memo by id with the provided updateData

@@ -64,5 +64,13 @@ class MemoData {
   }
 
   // delete a specific memo by id
-  static deleteMemo(memoId) {}
+  static deleteMemo(memoId) {
+    const relevantMemo = this.allMemos[memoId];
+
+    const keyDeletion = {
+      [`-=${memoId}`]: null
+    }
+
+    return game.users.get(relevantMemo.userId)?.setFlag(RememberNotes.ID, RememberNotes.FLAGS.MEMOS, keyDeletion);
+  }
 }

@@ -19,7 +19,7 @@ Hooks.on('renderPlayerList', (playerList, html) => {
   
   // insert a button at the end of this element
   loggedInUserListItem.append(
-    `<button type='button' class='memo-icon-button' title="${tooltip}"><i class='fa-solid fa-notes'></i></button>`
+    `<button type='button' class='memo-icon-button flex0' title="${tooltip}"><i class='fa-solid fa-notes'></i></button>`
   );
 });
 

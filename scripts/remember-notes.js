@@ -21,6 +21,11 @@ Hooks.on('renderPlayerList', (playerList, html) => {
   loggedInUserListItem.append(
     `<button type='button' class='memo-icon-button flex0' title="${tooltip}"><i class='fa-solid fa-notes'></i></button>`
   );
+
+  // register an event listener for this button
+  html.on('click', '.memo-icon-button', (event) => {
+    console.log('button clicked lol')
+  })
 });
 
 class MemoData {
@@ -85,5 +90,29 @@ class MemoData {
     }
 
     return game.users.get(relevantMemo.userId)?.setFlag(RememberNotes.ID, RememberNotes.FLAGS.MEMOS, keyDeletion);
+  }
+}
+
+class MemoConfig extends FormApplication {
+  static get defaultOptions() {
+    const defaults = super.defaultOptions;
+
+    const overrides = {
+      height: 'auto',
+      id: 'memo', // may need to change to rememberNotes
+      template: RememberNotes.TEMPLATES.REMEMBERNOTES,
+      title: 'Memo',
+      userId: game.userId,
+    };
+
+    const mergedOptions = foundry.utils.mergeObject(defaults, overrides);
+
+    return mergedOptions;
+    }
+
+    getData(options) {
+      return {
+        memos: MemoData.getMemosForUser(options.userId)
+      }
   }
 }

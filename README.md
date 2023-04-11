@@ -7,5 +7,6 @@
   On a per-user basis, configure a journal entry to pop-up on logging in to foundry to remind you to read over and take notes during your session.
   
   
-  ## UI is written, data storage for individual memos. 
+  #### *Status*
+  UI is written, data storage for individual memos. 
   Still need to add popup flag on each user and hook data manipulation to the UI.

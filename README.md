@@ -8,5 +8,5 @@
   
   
   #### *Status*
-  UI is written, data storage for individual memos. 
-  Still need to add popup flag on each user and hook data manipulation to the UI.
+UI is written, data storage for individual memos. 
+Still need to add popup flag on each user and hook data manipulation to the UI.
